@@ -10,4 +10,8 @@
     <PackageReference Include="Rebus.ServiceProvider" Version="4.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Pedido\Pedido.csproj" />
+  </ItemGroup>
+
 </Project>
