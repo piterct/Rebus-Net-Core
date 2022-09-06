@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Pedido.Commands;
 using Rebus.Messages;
 using Rebus.Persistence.InMem;
 using Rebus.Routing.TypeBased;
