@@ -1,4 +1,5 @@
-﻿using Pagamento.Commands;
+﻿using Core.Messages.IntegrationEvents;
+using Pagamento.Commands;
 using Rebus.Bus;
 using Rebus.Handlers;
 using System;
