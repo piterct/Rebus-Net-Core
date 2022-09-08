@@ -31,8 +31,9 @@ namespace Pedido
             config.Correlate<PedidoCanceladoEvent>(m => m.AggregateRoot, d => d.Id);
         }
 
-        public Task Handle(RealizarPedidoCommand message)
+        public  Task Handle(RealizarPedidoCommand message)
         {
+            
             //_bus.Send(new RealizarPedidoCommand{AggregateRoot = message.AggregateRoot}).Wait();
             // Realiza processamento de negocio!
 
@@ -40,7 +41,7 @@ namespace Pedido
             Console.WriteLine("Pedido Realizado!");
             Console.ForegroundColor = ConsoleColor.Black;
 
-            _bus.Publish(new PedidoRealizadoEvent { AggregateRoot = message.AggregateRoot }).Wait();
+             _bus.Publish(new PedidoRealizadoEvent { AggregateRoot = message.AggregateRoot }).Wait();
             Data.PedidoRealizado = true;
 
             ProcessoSaga();
