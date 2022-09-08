@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.0" />
     <PackageReference Include="Rebus" Version="6.6.5" />
   </ItemGroup>
 
