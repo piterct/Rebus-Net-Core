@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Pedido.Commands;
+using Rebus.Bus;
 using RebusNetCore.Models;
 using System;
 using System.Collections.Generic;
@@ -11,15 +13,16 @@ namespace RebusNetCore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IBus _bus;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IBus bus)
         {
-            _logger = logger;
+            _bus = bus;
         }
 
         public IActionResult Index()
         {
+            _bus.Send(new RealizarPedidoCommand { AggregateRoot = Guid.NewGuid() }).Wait();
             return View();
         }
 
