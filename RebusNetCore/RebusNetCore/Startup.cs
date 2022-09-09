@@ -14,6 +14,7 @@ using Rebus.Persistence.InMem;
 using Rebus.Routing.TypeBased;
 using Rebus.ServiceProvider;
 using Rebus.Transport.InMem;
+using Microsoft.Extensions.Hosting;
 
 namespace RebusNetCore
 {
@@ -31,7 +32,7 @@ namespace RebusNetCore
         {
             // Configure and register Rebus
 
-            var nomeFila = "fila_rebus_";
+            var nomeFila = "fila_rebus";
 
             services.AddControllers();
 
@@ -76,24 +77,15 @@ namespace RebusNetCore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/Home/Error");
-            //    app.UseHsts();
-            //}
-
-            //app.UseRebus(c =>
-            //{
-            //    c.Subscribe<PedidoRealizadoEvent>().Wait();
-            //    c.Subscribe<PagamentoRealizadoEvent>().Wait();
-            //    c.Subscribe<PedidoFinalizadoEvent>().Wait();
-            //    c.Subscribe<PagamentoRecusadoEvent>().Wait();
-            //    c.Subscribe<PedidoCanceladoEvent>().Wait();
-            //});
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
