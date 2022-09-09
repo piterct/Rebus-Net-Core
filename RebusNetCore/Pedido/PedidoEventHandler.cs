@@ -8,6 +8,7 @@ namespace Pedido
     public class PedidoEventHandler :
         IHandleMessages<PedidoRealizadoEvent>
     {
+
         public Task Handle(PedidoRealizadoEvent message)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
